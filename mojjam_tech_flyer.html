@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/logo.png" />
+    <title>MOJJAM TECHNOLOGIES - Tech Training</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <img src="images/logo.png" alt="Mojjam Technologies Logo" class="logo-image" />
+            <div class="header-text">
+                <div class="company-name editable" contenteditable="true">MOJJAM TECHNOLOGIES</div>
+                <div class="tagline editable" contenteditable="true">Empowering Tomorrow's Tech Leaders</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="free-badge sparkle">🚀 FREE 1-MONTH SESSION</div>
+
+            <h2 class="section-title">Master These Technologies</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <div class="tech-name">Frontend</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">⚙️</div>
+                    <div class="tech-name">Backend</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🗃️</div>
+                    <div class="tech-name">Database</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔄</div>
+                    <div class="tech-name">Version Control</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">💻</div>
+                    <div class="tech-name">Programming Languages</div>
+                </div>
+            </div>
+
+            <div class="session-info">
+                <div class="session-highlight">FREE 1-MONTH INTENSIVE TRAINING</div>
+                <div class="session-details">Get hands-on experience with industry-standard technologies</div>
+            </div>
+
+            <h2 class="section-title">Training Venues</h2>
+            <div class="venue-section">
+                <div class="venue-card">
+                    <div class="venue-icon">🏢</div>
+                    <div class="venue-title">Offline Training</div>
+                    <div class="editable" contenteditable="true">Physical classroom experience with direct mentorship</div>
+                </div>
+                <div class="venue-card">
+                    <div class="venue-icon">💻</div>
+                    <div class="venue-title">Online Training</div>
+                    <div class="editable" contenteditable="true">Learn from anywhere with live interactive sessions</div>
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <div class="payment-title">💰 Attractive Payment Plans</div>
+                <div class="payment-details editable" contenteditable="true">
+                    <strong>After your FREE month:</strong><br>
+                    • Flexible monthly payments<br>
+                    • Student discounts available<br>
+                    • Group enrollment benefits<br>
+                    • Payment plans starting from ₦15,000/month
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button">Register Now</a>
+            <a href="#" class="cta-button">Learn More</a>
+            <div class="contact-info">
+                <div class="editable" contenteditable="true">📧 info@mojjamtech.com | 📞 +234-706-330-6325</div>
+                <div class="editable" contenteditable="true">📍 Lagos, Nigeria | 🌐 www.mojjamtech.com</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make tech cards more interactive
+            const techCards = document.querySelectorAll('.tech-card');
+            techCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    }, 100);
+                });
+            });
+
+            // Add click animation to CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255,255,255,0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = (e.clientX - this.offsetLeft) + 'px';
+                    ripple.style.top = (e.clientY - this.offsetTop) + 'px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add hover effects to editable elements
+            const editables = document.querySelectorAll('.editable');
+            editables.forEach(elem => {
+                elem.addEventListener('focus', function() {
+                    this.style.background = 'rgba(84, 160, 255, 0.1)';
+                });
+                
+                elem.addEventListener('blur', function() {
+                    this.style.background = 'transparent';
+                });
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
